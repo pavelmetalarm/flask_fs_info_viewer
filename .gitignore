@@ -105,7 +105,7 @@ celerybeat.pid
 .env
 .venv
 env/
-venv/
+flask_fs_info_viewer_venv/
 ENV/
 env.bak/
 venv.bak/
@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 TZ.txt
+.idea/
