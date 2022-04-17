@@ -3,12 +3,52 @@
 <head>
     <title>My Webpage</title>
 </head>
-<body>
-    <h1>FS info</h1>
-    <h4> Total space = {{ total }} </h4>
-    <h4> Free space = {{ free }}</h4>
-    <h4> Used space = {{ used }}</h4>
+<body style="background-color: #4d79ff">
+<table style="margin: 3px">
+  <thead>
+    <tr style="background-color: #7cc3a97d">
+      <th> Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr style="background-color: #c2d4e4" >
+       <td> Total space,Free space,Used space  </td>
+       <td> {{ total,free,used }} </td>
+   </tr>
+  </tbody>
+</table>
 
-    {# a comment #}
+
+
+
+
+{% for device in all_my_disks%}
+<table width="400" border="2" padding="500" style="float: left">
+  <thead>
+    <tr style="background-color: #7cc3a97d">
+      <th> Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for key, value in device.items() %}
+   {% if loop.index % 2 == 1: %}
+   <tr style="background-color: #c2d4e4" >
+       <td> {{ key }} </td>
+       <td> {{ value }} </td>
+       {%- endif %}
+  {% if loop.index % 2 == 0: %}
+          <tr style="background-color: aliceblue" >
+       <td> {{ key }} </td>
+       <td> {{ value }} </td>
+      {%- endif %}
+   </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endfor %}
 </body>
 </html>
+
+
